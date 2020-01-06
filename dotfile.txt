@@ -1,0 +1,32 @@
+set number
+set incsearch
+set backspace=indent,start,eol
+
+:inoremap jk <Esc>
+:nnoremap V <C-v>
+:nnoremap VV V
+:nnoremap H gT
+:nnoremap L gt
+:nnoremap a F
+:vnoremap a F
+:vnoremap p "_dP
+:nnoremap <C-p> :FZF<cr>
+:nnoremap gi :GoImplements<cr>
+:nnoremap gr :GoReferrers<cr>
+
+au BufWritePost *.go silent :GoTest 
+
+call plug#begin('~/.vim/plugged')
+Plug 'git@github.com:vim-syntastic/syntastic'
+Plug 'git@github.com:junegunn/fzf.vim.git'
+Plug '/usr/local/opt/fzf' 
+Plug 'junegunn/fzf.vim'
+Plug 'git@github.com:fatih/vim-go.git'
+call plug#end()
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
